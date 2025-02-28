@@ -56,4 +56,16 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+<<<<<<< HEAD
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+=======
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so \
+
+TW_LOAD_VENDOR_MODULES := "flashlight.ko flashlights-mt6789-o7.ko"
+
+# Vendor ramdisk
+PRODUCT_COPY_FILES += \
+     device/xiaomi/tanzanite/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789
+
+>>>>>>> ab44c45 (tanzanite: refactor keymaster)
