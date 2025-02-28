@@ -23,43 +23,21 @@ PRODUCT_PACKAGES += \
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# API
-PRODUCT_SHIPPING_API_LEVEL := 31
-PRODUCT_TARGET_VNDK_VERSION := 34
-
-# Boot control HAL
+# Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-impl.recovery \
-    android.hardware.boot@1.2-service
+    android.hardware.keymaster@4.1
 
-# Health HAL
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
-
-# Fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    fastbootd
-
-# Keymint
-PRODUCT_PACKAGES += \
-    android.hardware.security.keymint \
-    android.hardware.security.secureclock \
-    android.hardware.security.sharedsecret
-
-# Additional libs
+# Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
-    libxml2
+    libpuresoftkeymasterdevice \
+    android.hardware.keymaster@4.1 \
+    libkeymint
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-<<<<<<< HEAD
-    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
-=======
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1 \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so \
 
 TW_LOAD_VENDOR_MODULES := "flashlight.ko flashlights-mt6789-o7.ko"
@@ -68,4 +46,3 @@ TW_LOAD_VENDOR_MODULES := "flashlight.ko flashlights-mt6789-o7.ko"
 PRODUCT_COPY_FILES += \
      device/xiaomi/tanzanite/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789
 
->>>>>>> ab44c45 (tanzanite: refactor keymaster)
