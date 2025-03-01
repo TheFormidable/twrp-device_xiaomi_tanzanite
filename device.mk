@@ -23,6 +23,10 @@ PRODUCT_PACKAGES += \
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Keystore Hal
+PRODUCT_PACKAGES += \
+    android.system.keystore2
+
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1
